@@ -17,11 +17,46 @@ struct date {
 	int week;
 };
 
+
+/*
+	判断是否闰年
+*/
+bool isLeapYear(int year)
+{
+	return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
+}
+
+
+/*
+	判断输入的日期是否合法
+*/
+bool isLegalDate(date& d)
+{
+	int year = d.year, mon = d.month, day = d.day;
+	//大：1 3 5 7 8 10 12
+	//小：4 6 9 11
+	//平：2
+
+	if (year < 0 || mon <= 0 || mon > 12 || day <= 0 || day > 31)return false;
+
+	if (1 == mon || 3 == mon || 5 == mon || 7 == mon || 8 == mon || 10 == mon || 12 == mon) {
+		return true;
+	}
+	if (isLeapYear(year)) {
+		if (2 == mon && (28 == day || 30 == day || 31 == day))return false;
+		return true;
+	}
+	else {
+		if (2 == mon && (29 == day || 30 == day || 31 == day))return false;
+		return true;
+	}
+}
+
 /*
 	用户欢迎页面
 */
 void welcome() {
-	cout << "欢迎来到生日聚会计划便签软件\n";
+	cout << "====================欢迎来到生日聚会计划便签软件====================\n";
 	//cout << "按任意键继续……\n";
 	system("pause");       //实现按任意键继续
 }
@@ -30,15 +65,19 @@ void welcome() {
 */
 date getUserBirthday() {
 	date userBirthday;
-	cout << "请输入您的出生年份\n";
-	cout << "请输入您的出生月份\n";
-	cout << "请输入您的出生日期\n";
-	//cin >> userBirthday.year;
-	//cin >> userBirthday.month;
-	//cin >> userBirthday.day;
-	userBirthday.year = 2002;
-	userBirthday.month = 3;
-	userBirthday.day = 17;
+	bool first = true;
+	do{
+		if (!first) {
+			cout << "您输入的日期不合法，请重新输入！\n";
+		}
+		cout << "请输入您的出生年份\n";
+		cin >> userBirthday.year;
+		cout << "请输入您的出生月份\n";
+		cin >> userBirthday.month;
+		cout << "请输入您的出生日期\n";
+		cin >> userBirthday.day;
+		first = false;
+	}while(!isLegalDate(userBirthday));
 	return userBirthday;
 }
 
@@ -65,18 +104,32 @@ date getCurDate() {
 	return curDate;
 }
 
+
 /*
-	判断是否闰年
+	以公元 1900 年 1 月 1 日为基准，通过天数计算出当前的时间
 */
-bool isLeapYear(int year)
-{
-	return ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
+date days2Date(int days) {
+	date d;
+	int m[] = { 0,31,28,31,30,31,30,31,31,30,31,30,31};
+	for (d.year = 1900; days>365+isLeapYear(d.year); d.year++)
+	{
+		days -= 365;
+		if (isLeapYear(d.year))
+			days--;
+	}
+	for (d.month = 1;  days>m[d.month]; d.month++)
+	{
+		days -= m[d.month];
+	}
+	d.day = days;
+
+	return d;
 }
 
 /*
 	以公元 1900 年 1 月 1 日为基准，计算经过的日期 
 */
-int getDays(date& aDate)
+int date2Days(const date& aDate)
 {
 	int m[] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
 	if (isLeapYear(aDate.year))
@@ -102,7 +155,7 @@ int getDays(date& aDate)
 */
 int dayDis(date& date1,date& date2)
 {
-	return abs(getDays(date1) - getDays(date2));
+	return abs(date2Days(date1) - date2Days(date2));
 }
 
 /*
@@ -124,19 +177,6 @@ void getNextBirthday(const date& curDate, date& userBirth) {
 	}
 }
 
-void showWeekDay(date d) {
-	switch (d.week)
-	{
-	case 0: cout << "星期一" << endl; break;
-	case 1: cout << "星期二" << endl; break;
-	case 2: cout << "星期三" << endl; break;
-	case 3: cout << "星期四" << endl; break;
-	case 4: cout << "星期五" << endl; break;
-	case 5: cout << "星期六" << endl; break;
-	case 6: cout << "星期日" << endl; break;
-	}
-}
-
 /*
 	根据日期计算出当天是星期几
 */
@@ -150,33 +190,122 @@ void CaculateWeekDay(date& date1)
 	date1.week = (d + 2 * m + 3 * (m + 1) / 5 + y + y / 4 - y / 100 + y / 400) % 7;
 }
 
+void showWeekDay(date d) {
+	if (d.week < 0 || d.week>6) {
+		CaculateWeekDay(d);
+	}
+	switch (d.week)
+	{
+		case 0: cout << "星期一" << endl; break;
+		case 1: cout << "星期二" << endl; break;
+		case 2: cout << "星期三" << endl; break;
+		case 3: cout << "星期四" << endl; break;
+		case 4: cout << "星期五" << endl; break;
+		case 5: cout << "星期六" << endl; break;
+		case 6: cout << "星期日" << endl; break;
+	}
+}
+
+
 void showdate(date d) {
 	cout << d.year << '-' << d.month <<'-'<< d.day;
+}
+
+
+/*
+	当前日期减去advance，计算开party的时间
+	advance可以为负数
+*/
+date getAdvancedDate(const date& birth, int advance){
+	int days = date2Days(birth);
+	days -= advance;
+	return days2Date(days);
 }
 
 /*
 	生日聚会计划制定日期
 */
-void getplan(date curDate,date userBirth) {
+date getplan(const date curDate,const date userBirth) {
 	cout << "下次生日日期：";
 	showdate(userBirth);
 	cout << endl;
 	int advanced;
 	cout << "请输入希望提前聚会的天数: ";
-	//cin >> advanced;
-	advanced = 2;
+	cin >> advanced;
+	//advanced = 2;
+	date planDate= getAdvancedDate(userBirth, advanced);
+	CaculateWeekDay(planDate);	//计算plan的日期是星期几，0对应星期一
+	return planDate;
+}
 
+date plan2party(date planDate) {
+	date partyDate;
+	if (planDate.week < 5) {
+		cout << "计划当天是";
+		showWeekDay(planDate);
+		cout<<"，已为您自动调整为最近的周六……" << endl;
+		if (planDate.week <= 1) { //周一周二
+			partyDate = getAdvancedDate(planDate, planDate.week + 2);
+		}
+		else {	//周三周四周五
+			partyDate = getAdvancedDate(planDate, planDate.week - 6);
+		}
+	}
+	else {
+		partyDate = planDate;
+	}
+	cout << "为您准备的生日聚会时间为：\n";
+	showdate(partyDate);
+	cout << "  ";
+	showWeekDay(partyDate);
+	return partyDate;
+}
 
+void endMenu(date& birthday,int days, date& planDate, date& partyDate) {
+	cout << "\n============================结束界面================================\n";
+	cout << "下次生日日期：";
+	showdate(birthday);
+	cout<<endl;
+	cout << "下次生日距离今天的天数：" << days << endl;
+	cout << "距离下次生日前n天的日期：";
+	showdate(planDate);
+	cout << endl;
+	cout << "预计准备生日的日期：";
+	showdate(partyDate);
+	cout << endl;
+}
+
+bool rePlan() {
+	char flag='0';
+	while (flag != 'y'&&flag != 'n') {
+		cout << "是否重新确定计划日期？(y/n)";
+		cin >> flag;
+	}
+	return flag == 'y';
 }
 
 int main() {
+	// 欢迎界面
 	welcome();
+	// 获取用户生日
 	date userBirthday = getUserBirthday();
+	// 获取当前日期
 	date curDate = getCurDate();
-	getNextBirthday(curDate, userBirthday);	// 将用户生日日期更新到下一个生日
-	cout << "距离您的生日还剩：" << dayDis(userBirthday, curDate) << endl;
+	// 将用户生日日期更新到下一个生日
+	getNextBirthday(curDate, userBirthday);	
+	cout << "您的下一个生日日期为：";
+	showdate(userBirthday);
+	int days = dayDis(userBirthday, curDate);
+	cout << "\n距离您的生日还剩：" << days << endl;
 	cout << "按任意键进入“生日聚会计划制定日期”的确定环节\n";
 	system("pause");
-	getplan(curDate, userBirthday);
-	//end
+	do {
+		cout << "=======================生日聚会计划日期制定=========================\n";
+		// 生日聚会计划指定日期
+		date planDate = getplan(curDate, userBirthday);
+		date partyDate = plan2party(planDate);
+		// 结束界面
+		endMenu(userBirthday, days, planDate, partyDate);
+	} while (rePlan());
+	cout << "===================退出任务========================";
 }
