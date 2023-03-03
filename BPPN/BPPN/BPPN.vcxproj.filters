@@ -20,9 +20,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="date.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="methods.h">
       <Filter>头文件</Filter>
     </ClInclude>
