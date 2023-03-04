@@ -1,3 +1,9 @@
+/**
+ * @file result.h
+ * @author Du Zhongfan  (Student-ID:2020302041100)
+ * @date 2023/3/4     9:00
+ *
+ */
 #ifndef RESULT_H
 #define RESULT_H
 

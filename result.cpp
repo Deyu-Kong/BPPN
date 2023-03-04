@@ -1,3 +1,9 @@
+/**
+ * @file result.cpp
+ * @author Du Zhongfan  (Student-ID:2020302041100)
+ * @date 2023/3/4     9:00
+ *
+ */
 #include "result.h"
 #include "ui_result.h"
 
