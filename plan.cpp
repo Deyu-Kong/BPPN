@@ -1,3 +1,4 @@
+﻿#pragma execution_character_set("utf-8")
 /**
  * @file plan.cpp
  * @author Du Zhongfan  (Student-ID:2020302041100)

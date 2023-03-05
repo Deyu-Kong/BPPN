@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file welcome.h
  * @author Du Zhongfan  (Student-ID:2020302041100)
  * @date 2023/3/3     20:00
@@ -8,6 +8,7 @@
 #define WELCOME_H
 
 #include <QDialog>
+#include <QKeyEvent>
 
 namespace Ui {
 class welcome;
@@ -22,7 +23,7 @@ public:
     ~welcome();
 
 private slots:
-    void on_pushButton_clicked();
+//    void on_pushButton_clicked();
 
 private:
     Ui::welcome *ui;
