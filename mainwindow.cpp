@@ -8,7 +8,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -40,14 +39,19 @@ MainWindow::MainWindow(QWidget *parent)
     int days=ui->dateEdit_2->date().daysTo(nextBirthday);
     QString ds=QString::number(days);
     ui->lineEdit->setText(ds);
-    QString nB = nextBirthday.toString("yyyy/MM/dd");
+    QString nB = nextBirthday.toString("yyyy/MM/dd dddd");
     ui->label_5->setText("下次生日的日期");
     ui->lineEdit_2->setText(nB);
-//    QString dateChoice = ui->dateEdit->date().toString("yyyy-MM-dd");
+//    QString dateChoice = ui->dateEdit->date().toString("yyyy-MM-dd dddd");
 //    qDebug()<<dateChoice;
     ui->lineEdit->setReadOnly(true);
     ui->lineEdit_2->setReadOnly(true);
     setWindowTitle("生日聚会计划便签");
+    ui->label_6->setVisible(0);
+    ui->lineEdit->setVisible(0);
+    ui->lineEdit_2->setVisible(0);
+    ui->label_3->setVisible(0);
+    ui->label_5->setVisible(0);
 }
 
 MainWindow::~MainWindow()
@@ -78,7 +82,7 @@ void MainWindow::on_dateEdit_userDateChanged(const QDate &date)
     QString ds=QString::number(days);
     MainWindow::DisDays=days;
     ui->lineEdit->setText(ds);
-    QString nB = nextBirthday.toString("yyyy/MM/dd");
+    QString nB = nextBirthday.toString("yyyy/MM/dd dddd");
     ui->lineEdit_2->setText(nB);
 }
 
@@ -105,12 +109,12 @@ void MainWindow::on_dateEdit_2_userDateChanged(const QDate &date)
     MainWindow::DisDays=days;
     QString ds=QString::number(days);
     ui->lineEdit->setText(ds);
-    QString nB = nextBirthday.toString("yyyy/MM/dd");
+    QString nB = nextBirthday.toString("yyyy/MM/dd dddd");
     ui->lineEdit_2->setText(nB);
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::afterInput()
 {
     this->close();
     Plan *pl=new Plan();
@@ -125,3 +129,27 @@ void MainWindow::on_pushButton_clicked()
 
 }
 
+void MainWindow::on_pushButton_2_clicked()
+{
+    ui->label_6->setVisible(1);
+    ui->lineEdit->setVisible(1);
+    ui->lineEdit_2->setVisible(1);
+    ui->label_3->setVisible(1);
+    ui->label_5->setVisible(1);
+    ui->centralwidget->installEventFilter(this);
+}
+
+Ui::MainWindow *MainWindow::getUi(){
+    return ui;
+}
+
+bool MainWindow::eventFilter(QObject *obj, QEvent *event){
+    qDebug()<<"Now is at eventFilter";
+    if (event->type() == QEvent::KeyPress||event->type() == QEvent::MouseButtonPress)
+    {
+        afterInput();
+        return true;
+    }
+
+    return QObject::eventFilter(obj, event);
+}

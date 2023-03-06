@@ -22,7 +22,6 @@ End::End(QWidget *parent) :
     ui->gif->setMovie(movie);
     ui->gif->show();
 //    movie->start();
-    ui->pushButton->setText("退出");
     ui->label->setText("计划日期为");
     ui->lineEdit->setReadOnly(true);
     setWindowTitle("结束");
@@ -38,6 +37,14 @@ End::~End()
 
 void End::on_pushButton_clicked()
 {
+    close();
+}
+
+void End::mousePressEvent(QMouseEvent *event){
+    close();
+}
+
+void End::keyPressEvent(QKeyEvent *event){
     close();
 }
 

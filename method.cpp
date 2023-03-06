@@ -244,7 +244,7 @@ MyDate plan2party(MyDate planDate) {
             partyDate = getAdvancedDate(planDate, planDate.week + 2);
         }
         else {	//周三周四周五
-            partyDate = getAdvancedDate(planDate, planDate.week - 6);
+            partyDate = getAdvancedDate(planDate, planDate.week - 5);
         }
     }
     else {

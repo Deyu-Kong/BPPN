@@ -93,7 +93,7 @@ void Plan::on_pushButton_2_clicked()
         QDate qpd(qpyear,qpmonth,qpday);
         Plan::PartyDate=qpd;
 //        qDebug()<<d;
-        ui->lineEdit_4->setText(qpd.toString("yyyy/MM/dd"));
+        ui->lineEdit_4->setText(qpd.toString("yyyy/MM/dd dddd"));
     }
 }
 
@@ -114,13 +114,13 @@ void Plan::on_pushButton_3_clicked()
         R->PlanDate=Plan::PlanDate;
         R->CurrentDate=Plan::CurrentDate;
         R->PartyDate=Plan::PartyDate;
-        R->setText1(Plan::NextBirthday.toString("yyyy/MM/dd"));
+        R->setText1(Plan::NextBirthday.toString("yyyy/MM/dd dddd"));
         QString ds=QString::number(Plan::DisDays);
         R->setText2(ds);
         QString ad=QString::number(Plan::PlanAdvanceDays);
         R->setText3(ad);
-        R->setText4(Plan::PlanDate.toString("yyyy/MM/dd"));
-        R->setText5(Plan::PartyDate.toString("yyyy/MM/dd"));
+        R->setText4(Plan::PlanDate.toString("yyyy/MM/dd dddd"));
+        R->setText5(Plan::PartyDate.toString("yyyy/MM/dd dddd"));
         R->show();
     }
 //    QMessageBox::warning(this, tr("警告！"),tr("天数超出范围！"),"返回");

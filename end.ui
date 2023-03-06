@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>460</width>
-    <height>416</height>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -80,9 +80,9 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QLabel" name="label_2">
            <property name="text">
-            <string>PushButton</string>
+            <string>按任意键退出...</string>
            </property>
           </widget>
          </item>
@@ -101,6 +101,19 @@
          </item>
         </layout>
        </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
       </item>
       <item>
        <widget class="QLabel" name="gif">

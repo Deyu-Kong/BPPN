@@ -18,7 +18,7 @@ Result::Result(QWidget *parent) :
     ui->label->setText("下次生日日期");
     ui->label_2->setText("还有");
     ui->label_3->setText("天过生日");
-//    ui->lineEdit->setText(NextBirthday.toString("yyyy/MM/dd"));
+//    ui->lineEdit->setText(NextBirthday.toString("yyyy/MM/dd dddd"));
     ui->label_4->setText("希望提前");
     ui->label_5->setText("天过生日");
     ui->label_6->setText("此日期为");

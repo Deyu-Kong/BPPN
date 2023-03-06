@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file mainwindow.h
  * @author Du Zhongfan  (Student-ID:2020302041100)
  * @date 2023/3/3     20:00
@@ -23,9 +23,12 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    Ui::MainWindow *getUi();
+    void afterInput();
     QDate Birthday;
     QDate CurrentDate;
     QDate NextBirthday;
+    bool eventFilter(QObject *obj, QEvent *event);
     int DisDays;
 //    int PlanAdvanceDays;
 //    QDate PlanDate;
@@ -36,7 +39,7 @@ private slots:
 
     void on_dateEdit_2_userDateChanged(const QDate &date);
 
-    void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;
