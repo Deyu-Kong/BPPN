@@ -8,7 +8,7 @@
 #define END_H
 
 #include <QWidget>
-
+#include<QMovie>
 namespace Ui {
 class End;
 }

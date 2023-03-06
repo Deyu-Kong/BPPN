@@ -13,7 +13,13 @@ End::End(QWidget *parent) :
     ui(new Ui::End)
 {
 
+
     ui->setupUi(this);
+    QMovie *movie=new QMovie(":/endgif.gif");
+    movie->start();
+    ui->gif->setMovie(movie);
+    ui->gif->show();
+//    movie->start();
     ui->pushButton->setText("退出");
     ui->label->setText("计划日期为");
     ui->lineEdit->setReadOnly(true);
