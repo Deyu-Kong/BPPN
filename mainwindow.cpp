@@ -14,15 +14,15 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->label->setText("生日日期");
-    ui->label_2->setText("当前日期");
+    ui->label->setText("您的生日日期：");
+    ui->label_2->setText("当前日期：");
     ui->dateEdit->setMinimumDate(QDate::currentDate().addDays(-365*120));
     ui->dateEdit->setMaximumDate(QDate::currentDate());
     ui->dateEdit_2->setDate(QDate::currentDate());
     ui->dateEdit->setCalendarPopup(true);
     ui->dateEdit_2->setCalendarPopup(true);
-    ui->label_3->setText("还有");
-    ui->label_4->setText("天过生日");
+    ui->label_3->setText("距离您的生日还有：");
+//    ui->label_4->setText("天过生日");
     int byear=ui->dateEdit->date().year();
     int bmonth=ui->dateEdit->date().month();
     int bday=ui->dateEdit->date().day();

@@ -8,7 +8,7 @@
 #include "mainwindow.h"
 #include <welcome.h>
 #include <QApplication>
-#include <QDebug>
+//#include <QDebug>
 
 int main(int argc, char *argv[]){
     //在QApplication创建之前加入该句，解决分辨率不同导致的文字压缩问题|

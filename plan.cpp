@@ -14,10 +14,10 @@ Plan::Plan(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->pushButton->setText("返回");
-    ui->label->setText("下次生日的日期");
-    ui->label_2->setText("还有");
-    ui->label_3->setText("天");
-    ui->label_6->setText("计划日期为");
+    ui->label->setText("下次生日的日期：");
+    ui->label_2->setText("剩余天数：");
+//    ui->label_3->setText("天");
+    ui->label_6->setText("计划日期为：");
 
     ui->pushButton_2->setText("确认");
     ui->pushButton_3->setText("查看最终结果");
