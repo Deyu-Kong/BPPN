@@ -16,7 +16,9 @@ End::End(QWidget *parent) :
 
     ui->setupUi(this);
     QMovie *movie=new QMovie(":/endgif.gif");
+    movie->setScaledSize(QSize(150,150));
     movie->start();
+
     ui->gif->setMovie(movie);
     ui->gif->show();
 //    movie->start();
