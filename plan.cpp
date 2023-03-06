@@ -17,6 +17,7 @@ Plan::Plan(QWidget *parent) :
     ui->label->setText("下次生日的日期：");
     ui->label_2->setText("剩余天数：");
 //    ui->label_3->setText("天");
+    ui->label_3->setText("此日期为：");
     ui->label_6->setText("计划日期为：");
 
     ui->pushButton_2->setText("确认");
@@ -94,6 +95,7 @@ void Plan::on_pushButton_2_clicked()
         Plan::PartyDate=qpd;
 //        qDebug()<<d;
         ui->lineEdit_4->setText(qpd.toString("yyyy/MM/dd dddd"));
+        ui->lineEdit_5->setText(qd2.toString("yyyy/MM/dd dddd"));
     }
 }
 
