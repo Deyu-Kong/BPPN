@@ -11,7 +11,7 @@
 #include <QKeyEvent>
 #include <QMouseEvent>
 #include <QKeyEvent>
-
+#include<QPainter>
 namespace Ui {
 class welcome;
 }

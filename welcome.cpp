@@ -16,6 +16,22 @@ welcome::welcome(QWidget *parent) :
     ui->setupUi(this);
 //    ui->pushButton->setText("进入");
     ui->label->setText("欢迎使用本生日聚会计划便签");
+    this->setAutoFillBackground(true);
+    QPalette p=this->palette();
+//    QPixmap *pix=new QPixmap(":/R-C.jpg");
+
+    QPixmap pix(":/R-C.jpg");
+    QPixmap temp(pix.size());
+    temp.fill(Qt::transparent);
+    QPainter pp(&temp);
+    pp.setCompositionMode(QPainter::CompositionMode_Source);
+    pp.drawPixmap(0,0,pix);
+    pp.setCompositionMode(QPainter::CompositionMode_DestinationIn);
+    pp.fillRect(temp.rect(),QColor(0,0,0,150));//第四个参数为改透明度
+    pp.end();
+    pix=temp;
+    p.setBrush(QPalette::Window,QBrush(pix));
+    this->setPalette(p);
     setWindowTitle("欢迎");
 }
 
