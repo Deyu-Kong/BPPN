@@ -24,6 +24,14 @@ welcome::~welcome()
     delete ui;
 }
 
+void welcome::mousePressEvent(QMouseEvent *event){
+    welcome::~welcome();
+}
+
+void welcome::keyPressEvent(QKeyEvent *event){
+    welcome::~welcome();
+}
+
 //void welcome::on_pushButton_clicked()
 //{
 //    accept();

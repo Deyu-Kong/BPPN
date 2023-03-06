@@ -23,8 +23,7 @@ HEADERS += \
     method.h \
     plan.h \
     result.h \
-    welcome.h \
-    eventlistener.h
+    welcome.h
 
 FORMS += \
     end.ui \

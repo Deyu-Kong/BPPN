@@ -9,6 +9,8 @@
 
 #include <QDialog>
 #include <QKeyEvent>
+#include <QMouseEvent>
+#include <QKeyEvent>
 
 namespace Ui {
 class welcome;
@@ -20,6 +22,10 @@ class welcome : public QDialog
 
 public:
     explicit welcome(QWidget *parent = nullptr);
+    // 鼠标按下事件
+    void mousePressEvent(QMouseEvent *event);
+    // 键盘按下事件
+    void keyPressEvent(QKeyEvent *event);
     ~welcome();
 
 private slots:

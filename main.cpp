@@ -8,16 +8,15 @@
 #include "mainwindow.h"
 #include <welcome.h>
 #include <QApplication>
-#include "eventlistener.h"
+#include <QDebug>
 
 int main(int argc, char *argv[]){
     //在QApplication创建之前加入该句，解决分辨率不同导致的文字压缩问题|
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+
     QApplication a(argc, argv);
     MainWindow w;
     class welcome we;
-    KeyEventFilter eventFilter;
-    we.installEventFilter(&eventFilter);
 //    if(we.exec()==QDialog::Accepted){
 //    if(we.exec()){
 //        we.hide();
