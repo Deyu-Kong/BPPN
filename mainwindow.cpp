@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->label_2->setText("当前日期：");
     ui->dateEdit->setMinimumDate(QDate::currentDate().addDays(-365*120));
     ui->dateEdit->setMaximumDate(QDate::currentDate());
+    ui->dateEdit->setFocus();
     ui->dateEdit_2->setDate(QDate::currentDate());
     ui->dateEdit->setCalendarPopup(true);
     ui->dateEdit_2->setCalendarPopup(true);
