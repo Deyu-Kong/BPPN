@@ -1,8 +1,0 @@
-﻿  main.cpp
-d:\codes\c++\bppn\bppn\bppn\main.cpp(7): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  正在生成代码
-  18 of 151 functions (11.9%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  已完成代码的生成
-  BPPN.vcxproj -> D:\Codes\c++\BPPN\BPPN\Release\BPPN.exe
