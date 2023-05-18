@@ -47,3 +47,7 @@ RESOURCES += \
     back.qrc \
     gif.qrc \
     logo.qrc
+
+win32-msvc* {
+        QMAKE_CXXFLAGS += /source-charset:utf-8 /execution-charset:utf-8
+    }

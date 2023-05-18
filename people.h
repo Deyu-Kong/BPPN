@@ -1,8 +1,11 @@
-﻿#ifndef PEOPLE_H
+#ifndef PEOPLE_H
 #define PEOPLE_H
 
 #include <QWidget>
-
+#include "mydialog.h"
+#include "persinfo.h"
+#include <QInputDialog>
+#include <QMessageBox>
 namespace Ui {
 class People;
 }

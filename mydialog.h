@@ -1,4 +1,4 @@
-﻿#ifndef MYDIALOG_H
+#ifndef MYDIALOG_H
 #define MYDIALOG_H
 
 #include<QDialog>
@@ -6,6 +6,8 @@
 #include<QLineEdit>
 #include<QPushButton>
 #include<QDateEdit>
+#include<QLabel>
+#include<QMessageBox>
 #include "persinfo.h"
 class MyDialog : public QDialog {
     Q_OBJECT
@@ -13,7 +15,7 @@ class MyDialog : public QDialog {
 public:
     MyDialog(QWidget* parent = nullptr);
     PersInfo getData();
-
+    void onOkButtonClicked();
     QLineEdit* lineEdit1;
     QLineEdit* lineEdit2;
     QDateEdit* dateEdit;
