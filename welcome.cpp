@@ -9,9 +9,9 @@
 #include "ui_welcome.h"
 
 
-welcome::welcome(QWidget *parent) :
+Welcome::Welcome(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::welcome)
+    ui(new Ui::Welcome)
 {
     ui->setupUi(this);
 //    ui->pushButton->setText("进入");
@@ -35,20 +35,20 @@ welcome::welcome(QWidget *parent) :
     setWindowTitle("欢迎");
 }
 
-welcome::~welcome()
+Welcome::~Welcome()
 {
     delete ui;
 }
 
-void welcome::mousePressEvent(QMouseEvent *event){
-    welcome::~welcome();
+void Welcome::mousePressEvent(QMouseEvent *event){
+    Welcome::~Welcome();
 }
 
-void welcome::keyPressEvent(QKeyEvent *event){
-    welcome::~welcome();
+void Welcome::keyPressEvent(QKeyEvent *event){
+    Welcome::~Welcome();
 }
 
-//void welcome::on_pushButton_clicked()
+//void Welcome::on_pushButton_clicked()
 //{
 //    accept();
 //}

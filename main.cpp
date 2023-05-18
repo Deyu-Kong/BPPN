@@ -6,6 +6,7 @@
  *
  */
 #include "mainwindow.h"
+#include "people.h"
 #include <welcome.h>
 #include <QApplication>
 //#include <QDebug>
@@ -15,15 +16,16 @@ int main(int argc, char *argv[]){
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QApplication a(argc, argv);
-    MainWindow w;
-    class welcome we;
+//    MainWindow mainWindow;
+    People people;
+    Welcome welcome;
 //    if(we.exec()==QDialog::Accepted){
 //    if(we.exec()){
 //        we.hide();
 //        w.show();
 //        return a.exec();
 //    }
-    we.exec();
-    w.show();
+    welcome.exec();
+    people.show();
     return a.exec();
 }

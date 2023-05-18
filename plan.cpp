@@ -17,7 +17,7 @@ Plan::Plan(QWidget *parent) :
     ui->label->setText("下次生日的日期：");
     ui->label_2->setText("剩余天数：");
 //    ui->label_3->setText("天");
-    ui->label_3->setText("此日期为：");
+    ui->label_3->setText("提前后的日期为：");
     ui->label_6->setText("计划日期为：");
 
     ui->pushButton_2->setText("确认");
@@ -25,6 +25,7 @@ Plan::Plan(QWidget *parent) :
     ui->lineEdit->setReadOnly(true);
     ui->lineEdit_2->setReadOnly(true);
     ui->lineEdit_4->setReadOnly(true);
+    ui->lineEdit_5->setReadOnly(true);
     setWindowTitle("制定聚会计划");
 
 

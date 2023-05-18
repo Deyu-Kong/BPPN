@@ -1,4 +1,4 @@
-#ifndef METHOD_H
+﻿#ifndef METHOD_H
 #define METHOD_H
 /*
     定义日期格式
@@ -30,7 +30,7 @@ int dayDis(MyDate& date1, MyDate& date2);
 void CaculateWeekDay(MyDate& date1);
 void showWeekDay(MyDate d);
 void showdate(MyDate d);
-void welcome();
+//void welcome();
 MyDate getUserBirthday();
 void getNextBirthday(const MyDate& curDate, MyDate& userBirth);
 MyDate getAdvancedDate(const MyDate& birth, int advance);

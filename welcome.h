@@ -13,26 +13,26 @@
 #include <QKeyEvent>
 #include<QPainter>
 namespace Ui {
-class welcome;
+class Welcome;
 }
 
-class welcome : public QDialog
+class Welcome : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit welcome(QWidget *parent = nullptr);
+    explicit Welcome(QWidget *parent = nullptr);
     // 鼠标按下事件
     void mousePressEvent(QMouseEvent *event);
     // 键盘按下事件
     void keyPressEvent(QKeyEvent *event);
-    ~welcome();
+    ~Welcome();
 
 private slots:
 //    void on_pushButton_clicked();
 
 private:
-    Ui::welcome *ui;
+    Ui::Welcome *ui;
 };
 
 #endif // WELCOME_H

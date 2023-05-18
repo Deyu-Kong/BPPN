@@ -6,6 +6,7 @@
 #include<ctime>
 #include<sstream>
 #include"method.h"
+
 using namespace std;
 
 /*
@@ -161,11 +162,11 @@ void showdate(MyDate d) {
 /*
     用户欢迎页面
 */
-void welcome() {
-    cout << "====================欢迎来到生日聚会计划便签软件====================\n";
-    //cout << "按任意键继续……\n";
-    system("pause");       //实现按任意键继续
-}
+//void welcome() {
+//    cout << "====================欢迎来到生日聚会计划便签软件====================\n";
+//    //cout << "按任意键继续……\n";
+//    system("pause");       //实现按任意键继续
+//}
 
 /*
     根据用户输入获得用户生日日期
