@@ -29,6 +29,7 @@ public:
     QDate CurrentDate;
     QDate NextBirthday;
     bool eventFilter(QObject *obj, QEvent *event);
+    void setBirthday(QDate birthday);
     int DisDays;
 //    int PlanAdvanceDays;
 //    QDate PlanDate;

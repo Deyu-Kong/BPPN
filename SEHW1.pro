@@ -18,7 +18,8 @@ SOURCES += \
     result.cpp \
     welcome.cpp \
     people.cpp \
-    mydialog.cpp
+    mydialog.cpp \
+    choosewindow.cpp
 HEADERS += \
     end.h \
     mainwindow.h \
@@ -28,7 +29,8 @@ HEADERS += \
     welcome.h \
     people.h \
     persinfo.h \
-    mydialog.h
+    mydialog.h \
+    choosewindow.h
 
 FORMS += \
     end.ui \
@@ -36,7 +38,8 @@ FORMS += \
     plan.ui \
     result.ui \
     welcome.ui \
-    people.ui
+    people.ui \
+    choosewindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

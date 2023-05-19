@@ -1,4 +1,4 @@
-﻿#pragma execution_character_set("utf-8")
+﻿
 /**
  * @file mainwindow.cpp
  * @author Du Zhongfan  (Student-ID:2020302041100)
@@ -15,28 +15,30 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->label->setText("您的生日日期：");
     ui->label_2->setText("当前日期：");
-    ui->dateEdit->setMinimumDate(QDate::currentDate().addDays(-365*120));
-    ui->dateEdit->setMaximumDate(QDate::currentDate());
-    ui->dateEdit->setFocus();
+//    ui->dateEdit->setMinimumDate(QDate::currentDate().addDays(-365*120));
+//    ui->dateEdit->setMaximumDate(QDate::currentDate());
+//    ui->dateEdit->setFocus();
     ui->dateEdit_2->setDate(QDate::currentDate());
-    ui->dateEdit->setCalendarPopup(true);
+//    ui->dateEdit->setCalendarPopup(true);
     ui->dateEdit_2->setCalendarPopup(true);
     ui->label_3->setText("距离您的生日还有：");
+//    ui->birthday->setText(this->Birthday.toString());
 //    ui->label_4->setText("天过生日");
-    int byear=ui->dateEdit->date().year();
-    int bmonth=ui->dateEdit->date().month();
-    int bday=ui->dateEdit->date().day();
+//    int byear=ui->dateEdit->date().year();
+//    int bmonth=ui->dateEdit->date().month();
+//    int bday=ui->dateEdit->date().day();
     int cyear=ui->dateEdit_2->date().year();
     int cmonth=ui->dateEdit_2->date().month();
     int cday=ui->dateEdit_2->date().day();
-    MyDate date1(byear,bmonth,bday);
+//    MyDate date1(byear,bmonth,bday);
+    MyDate date1(this->Birthday.year(),this->Birthday.month(),this->Birthday.day());
     MyDate date2(cyear,cmonth,cday);
     getNextBirthday(date2,date1);
     int nyear=date1.year;
     int nmonth=date1.month;
     int nday=date1.day;
     QDate nextBirthday(nyear,nmonth,nday);
-    qDebug()<<nyear<<" "<<nmonth<<" "<<nday;
+//    qDebug()<<nyear<<" "<<nmonth<<" "<<nday;
     int days=ui->dateEdit_2->date().daysTo(nextBirthday);
     QString ds=QString::number(days);
     ui->lineEdit->setText(ds);
@@ -63,15 +65,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_dateEdit_userDateChanged(const QDate &date)
 {
-    int byear=ui->dateEdit->date().year();
-    int bmonth=ui->dateEdit->date().month();
-    int bday=ui->dateEdit->date().day();
-    MainWindow::Birthday=ui->dateEdit->date();
+//    int byear=ui->dateEdit->date().year();
+//    int bmonth=ui->dateEdit->date().month();
+//    int bday=ui->dateEdit->date().day();
+//    MainWindow::Birthday=ui->dateEdit->date();
     int cyear=ui->dateEdit_2->date().year();
     int cmonth=ui->dateEdit_2->date().month();
     int cday=ui->dateEdit_2->date().day();
     MainWindow::CurrentDate=ui->dateEdit_2->date();
-    MyDate date1(byear,bmonth,bday);
+//    MyDate date1(byear,bmonth,bday);
+    MyDate date1(this->Birthday.year(),this->Birthday.month(),this->Birthday.day());
     MyDate date2(cyear,cmonth,cday);
     getNextBirthday(date2,date1);
     int nyear=date1.year;
@@ -90,15 +93,16 @@ void MainWindow::on_dateEdit_userDateChanged(const QDate &date)
 
 void MainWindow::on_dateEdit_2_userDateChanged(const QDate &date)
 {
-    int byear=ui->dateEdit->date().year();
-    int bmonth=ui->dateEdit->date().month();
-    int bday=ui->dateEdit->date().day();
-    MainWindow::Birthday=ui->dateEdit->date();
+//    int byear=ui->dateEdit->date().year();
+//    int bmonth=ui->dateEdit->date().month();
+//    int bday=ui->dateEdit->date().day();
+//    MainWindow::Birthday=ui->dateEdit->date();
     int cyear=ui->dateEdit_2->date().year();
     int cmonth=ui->dateEdit_2->date().month();
     int cday=ui->dateEdit_2->date().day();
     MainWindow::CurrentDate=ui->dateEdit_2->date();
-    MyDate date1(byear,bmonth,bday);
+//    MyDate date1(byear,bmonth,bday);
+    MyDate date1(this->Birthday.year(),this->Birthday.month(),this->Birthday.day());
     MyDate date2(cyear,cmonth,cday);
     getNextBirthday(date2,date1);
     int nyear=date1.year;
@@ -140,12 +144,18 @@ void MainWindow::on_pushButton_2_clicked()
     ui->centralwidget->installEventFilter(this);
 }
 
+void MainWindow::setBirthday(QDate birthday){
+    this->Birthday = birthday;
+    ui->birthday->setText(this->Birthday.toString());
+//    ui->birthday->setText("你好");
+}
+
 Ui::MainWindow *MainWindow::getUi(){
     return ui;
 }
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event){
-    qDebug()<<"Now is at eventFilter";
+//    qDebug()<<"Now is at eventFilter";
     if (event->type() == QEvent::KeyPress||event->type() == QEvent::MouseButtonPress)
     {
         afterInput();

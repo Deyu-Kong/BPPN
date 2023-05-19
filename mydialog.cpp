@@ -1,4 +1,4 @@
-#include<QDialog>
+﻿#include<QDialog>
 #include<QGridLayout>
 #include<QLineEdit>
 #include<QPushButton>
@@ -20,12 +20,13 @@ MyDialog::MyDialog(QWidget* parent) : QDialog(parent) {
     lineEdit2 = new QLineEdit(this);
     QLabel* birthdayLabel = new QLabel("生日", this);
     dateEdit = new QDateEdit(QDate::currentDate(), this);
+    dateEdit->setCalendarPopup(true);
     QPushButton* okButton = new QPushButton("确认", this);
 
     // 添加控件到布局
     layout->addWidget(nameLabel, 0, 0);
     layout->addWidget(lineEdit1, 0, 1);
-     layout->addWidget(relationLabel, 1, 0);
+    layout->addWidget(relationLabel, 1, 0);
     layout->addWidget(lineEdit2, 1, 1);
     layout->addWidget(birthdayLabel, 2, 0);
     layout->addWidget(dateEdit, 2, 1);

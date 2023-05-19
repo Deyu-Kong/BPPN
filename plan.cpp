@@ -1,4 +1,4 @@
-﻿#pragma execution_character_set("utf-8")
+﻿
 /**
  * @file plan.cpp
  * @author Du Zhongfan  (Student-ID:2020302041100)
@@ -58,7 +58,8 @@ void Plan::setText3(QString days){
     ui->lineEdit_3->setValidator(IntValidator);
 }
 void Plan::on_pushButton_2_clicked()
-{   qDebug()<<ui->lineEdit_2->text().toInt();
+{
+//    qDebug()<<ui->lineEdit_2->text().toInt();
     if(ui->lineEdit_3->text().toInt()<1||ui->lineEdit_3->text().toInt()>ui->lineEdit_2->text().toInt()){
 
         QMessageBox::warning(this, tr("警告！"),tr("天数超出范围！"),"返回");

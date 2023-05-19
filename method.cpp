@@ -1,4 +1,4 @@
-﻿#pragma execution_character_set("utf-8")
+﻿
 //#pragma warning(disable:4996)
 #include<iostream>
 #include<chrono>

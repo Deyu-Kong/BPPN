@@ -1,4 +1,4 @@
-﻿#pragma execution_character_set("utf-8")
+﻿
 /**
  * @file end.cpp
  * @author Du Zhongfan  (Student-ID:2020302041100)
@@ -12,8 +12,6 @@ End::End(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::End)
 {
-
-
     ui->setupUi(this);
     QMovie *movie=new QMovie(":/endgif.gif");
     movie->setScaledSize(QSize(150,150));
