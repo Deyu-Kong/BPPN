@@ -56,7 +56,7 @@ Result::~Result()
 void Result::on_pushButton_clicked()
 {
     this->close();
-    Plan *pla=new Plan();
+    PlanWindow *pla=new PlanWindow();
     pla->PlanAdvanceDays=Result::PlanAdvanceDays;
     pla->DisDays=Result::DisDays;
     pla->PlanDate=Result::PlanDate;

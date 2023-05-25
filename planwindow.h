@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file plan.h
  * @author Du Zhongfan  (Student-ID:2020302041100)
  * @date 2023/3/3     20:00
@@ -14,19 +14,20 @@
 #include<QDate>
 #include<QDebug>
 #include<QString>
+#include<QListWidgetItem>
 #include<method.h>
 #include<result.h>
 namespace Ui {
-class Plan;
+class PlanWindow;
 }
 
-class Plan : public QWidget
+class PlanWindow : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Plan(QWidget *parent = nullptr);
-    ~Plan();
+    explicit PlanWindow(QWidget *parent = nullptr);
+    ~PlanWindow();
     void setText1(QString nb);//设置下一个生日的日期
     void setText2(QString days);//设置天数
     void setText3(QString days);
@@ -45,7 +46,7 @@ private slots:
     void on_pushButton_3_clicked();
 
 private:
-    Ui::Plan *ui;
+    Ui::PlanWindow *ui;
 };
 
 #endif // PLAN_H

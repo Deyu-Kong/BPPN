@@ -1,10 +1,5 @@
 ﻿
 //#pragma warning(disable:4996)
-#include<iostream>
-#include<chrono>
-#include<string>
-#include<ctime>
-#include<sstream>
 #include"method.h"
 
 using namespace std;
@@ -192,20 +187,18 @@ MyDate getUserBirthday() {
 /*
     计算用户下一个生日的日期
 */
-void getNextBirthday(const MyDate& curDate, MyDate& userBirth) {
-    if (curDate.month > userBirth.month) {
-        userBirth.year = curDate.year + 1;
+QDate getNextBirthday(const QDate& curDate, const QDate& userBirth) {
+    if (curDate.month() > userBirth.month()) {
+        return QDate(curDate.year() + 1,userBirth.month(),userBirth.day());
     }
-    else if (curDate.month == userBirth.month&&curDate.day >= userBirth.day) {
-        if (curDate.day == userBirth.day) {
-            userBirth.year = curDate.year;
-//            cout << "今天就是您的生日，您无需计划";
-//            exit(0);
+    else if (curDate.month() == userBirth.month()&&curDate.day() >= userBirth.day()) {
+        if (curDate.day() == userBirth.day()) {
+            return QDate(curDate.year(),userBirth.month(),userBirth.day());
         }
-        else userBirth.year = curDate.year + 1;
+        else return QDate(curDate.year() + 1,userBirth.month(),userBirth.day());
     }
     else {
-        userBirth.year = curDate.year;
+        return QDate(curDate.year(),userBirth.month(),userBirth.day());
     }
 }
 

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Plan</class>
- <widget class="QWidget" name="Plan">
+ <class>PlanWindow</class>
+ <widget class="QWidget" name="PlanWindow">
   <property name="geometry">
    <rect>
     <x>0</x>

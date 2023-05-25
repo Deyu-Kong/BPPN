@@ -9,7 +9,7 @@
 
 #include <QWidget>
 #include<QMessageBox>
-#include<plan.h>
+#include<planwindow.h>
 #include<end.h>
 namespace Ui {
 class Result;

@@ -5,12 +5,14 @@
  * @date 2023/3/3     20:00
  *
  */
-#include "plan.h"
-#include "ui_plan.h"
+#include "planwindow.h"
+#include "ui_planwindow.h"
 
-Plan::Plan(QWidget *parent) :
+extern QListWidgetItem *curRelative;
+
+PlanWindow::PlanWindow(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Plan)
+    ui(new Ui::PlanWindow)
 {
     ui->setupUi(this);
     ui->pushButton->setText("返回");
@@ -31,36 +33,49 @@ Plan::Plan(QWidget *parent) :
 
 }
 
-Plan::~Plan()
+PlanWindow::~PlanWindow()
 {
     delete ui;
 }
 
-void Plan::on_pushButton_clicked()
+/*
+    在计划阶段选择返回，重新输入当前日期。
+*/
+void PlanWindow::on_pushButton_clicked()
 {
     this->close();
-    MainWindow *m=new MainWindow();
-    m->show();
+    MainWindow *mainWindow = new MainWindow();
+    QString item = curRelative->text();
+    int fst_idx = item.indexOf('\t');
+    int scd_idx = item.indexOf('\t',fst_idx+1);
+    QString date_t = item.mid(scd_idx+1);
+    QString date = date_t.split('\t').first();
+    mainWindow->setBirthday(QDate::fromString(date,"yyyy-MM-dd"));
+    mainWindow->setRelativeName(item.mid(0,fst_idx));
+    mainWindow->show();
 }
-void Plan::setText1(QString nb){
+
+
+void PlanWindow::setText1(QString nb){
     ui->lineEdit->setText(nb);
 }
-void Plan::setText2(QString days){
+void PlanWindow::setText2(QString days){
     ui->lineEdit_2->setText(days);
 }
-void Plan::setText3(QString days){
-    QString s("请输入1-");
+void PlanWindow::setText3(QString days){
+    QString s("请输入0-");
     s.append(days);
     ui->lineEdit_3->setPlaceholderText(s);//背景提示用户输入范围
     QIntValidator* IntValidator = new QIntValidator;
 
-    IntValidator->setRange(1, days.toInt());
+    IntValidator->setRange(0, days.toInt());
     ui->lineEdit_3->setValidator(IntValidator);
 }
-void Plan::on_pushButton_2_clicked()
+void PlanWindow::on_pushButton_2_clicked()
 {
 //    qDebug()<<ui->lineEdit_2->text().toInt();
-    if(ui->lineEdit_3->text().toInt()<1||ui->lineEdit_3->text().toInt()>ui->lineEdit_2->text().toInt()){
+    if(ui->lineEdit_3->text().toInt()<0
+            ||ui->lineEdit_3->text().toInt()>ui->lineEdit_2->text().toInt()){
 
         QMessageBox::warning(this, tr("警告！"),tr("天数超出范围！"),"返回");
     }
@@ -77,8 +92,8 @@ void Plan::on_pushButton_2_clicked()
         MyDate d1(year,month,day);
         MyDate d2=getAdvancedDate(d1,ui->lineEdit_3->text().toInt());
         QDate qd2(d2.year,d2.month,d2.day);
-        Plan::PlanAdvanceDays=ui->lineEdit_3->text().toInt();
-        Plan::PlanDate=qd2;
+        PlanWindow::PlanAdvanceDays=ui->lineEdit_3->text().toInt();
+        PlanWindow::PlanDate=qd2;
 //        int pyear=d2.year;
 //        int pmonth=d2.month;
 //        int pday=d2.day;
@@ -94,7 +109,7 @@ void Plan::on_pushButton_2_clicked()
         int qpmonth=pd.month;
         int qpday=pd.day;
         QDate qpd(qpyear,qpmonth,qpday);
-        Plan::PartyDate=qpd;
+        PlanWindow::PartyDate=qpd;
 //        qDebug()<<d;
         ui->lineEdit_4->setText(qpd.toString("yyyy/MM/dd dddd"));
         ui->lineEdit_5->setText(qd2.toString("yyyy/MM/dd dddd"));
@@ -102,7 +117,7 @@ void Plan::on_pushButton_2_clicked()
 }
 
 
-void Plan::on_pushButton_3_clicked()
+void PlanWindow::on_pushButton_3_clicked()
 {
     if(ui->lineEdit_4->text()==""){
          QMessageBox::warning(this, tr("提示！"),tr("还未得到计划日期"),"返回");
@@ -110,23 +125,22 @@ void Plan::on_pushButton_3_clicked()
     else{
         this->close();
         Result *R=new Result();
-        R->Birthday=Plan::Birthday;
-        R->NextBirthday=Plan::NextBirthday;
+        R->Birthday=PlanWindow::Birthday;
+        R->NextBirthday=PlanWindow::NextBirthday;
 //        qDebug()<<R->NextBirthday;
-        R->PlanAdvanceDays=Plan::PlanAdvanceDays;
-        R->DisDays=Plan::DisDays;
-        R->PlanDate=Plan::PlanDate;
-        R->CurrentDate=Plan::CurrentDate;
-        R->PartyDate=Plan::PartyDate;
-        R->setText1(Plan::NextBirthday.toString("yyyy/MM/dd dddd"));
-        QString ds=QString::number(Plan::DisDays);
+        R->PlanAdvanceDays=PlanWindow::PlanAdvanceDays;
+        R->DisDays=PlanWindow::DisDays;
+        R->PlanDate=PlanWindow::PlanDate;
+        R->CurrentDate=PlanWindow::CurrentDate;
+        R->PartyDate=PlanWindow::PartyDate;
+        R->setText1(PlanWindow::NextBirthday.toString("yyyy/MM/dd dddd"));
+        QString ds=QString::number(PlanWindow::DisDays);
         R->setText2(ds);
-        QString ad=QString::number(Plan::PlanAdvanceDays);
+        QString ad=QString::number(PlanWindow::PlanAdvanceDays);
         R->setText3(ad);
-        R->setText4(Plan::PlanDate.toString("yyyy/MM/dd dddd"));
-        R->setText5(Plan::PartyDate.toString("yyyy/MM/dd dddd"));
+        R->setText4(PlanWindow::PlanDate.toString("yyyy/MM/dd dddd"));
+        R->setText5(PlanWindow::PartyDate.toString("yyyy/MM/dd dddd"));
         R->show();
     }
 //    QMessageBox::warning(this, tr("警告！"),tr("天数超出范围！"),"返回");
 }
-

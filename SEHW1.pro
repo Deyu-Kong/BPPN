@@ -14,32 +14,34 @@ SOURCES += \
     mainwindow.cpp \
     method.cpp \
     persinfo.cpp \
-    plan.cpp \
     result.cpp \
     welcome.cpp \
-    people.cpp \
     mydialog.cpp \
-    choosewindow.cpp
+    choosewindow.cpp \
+    relativewindow.cpp \
+    global.cpp \
+    planwindow.cpp
 HEADERS += \
     end.h \
     mainwindow.h \
     method.h \
-    plan.h \
     result.h \
     welcome.h \
-    people.h \
     persinfo.h \
     mydialog.h \
-    choosewindow.h
+    choosewindow.h \
+    relativewindow.h \
+    planwindow.h
 
 FORMS += \
     end.ui \
     mainwindow.ui \
-    plan.ui \
     result.ui \
     welcome.ui \
-    people.ui \
-    choosewindow.ui
+    relativewindow.ui \
+    choosewindow.ui \
+    relativewindow.ui \
+    planwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

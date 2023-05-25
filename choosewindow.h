@@ -5,6 +5,9 @@
 #include <QMessageBox>
 #include "mainwindow.h"
 
+
+extern QStringList gRelativeList;
+
 namespace Ui {
 class ChooseWindow;
 }
@@ -17,7 +20,6 @@ public:
     explicit ChooseWindow(QWidget *parent = nullptr);
     ~ChooseWindow();
     Ui::ChooseWindow *ui;
-    QStringList list;
     void setListWidget();
 private slots:
     void on_pushButton_clicked();

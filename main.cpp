@@ -6,7 +6,7 @@
  *
  */
 #include "mainwindow.h"
-#include "people.h"
+#include "relativewindow.h"
 #include <welcome.h>
 #include <QApplication>
 
@@ -18,7 +18,7 @@ int main(int argc, char *argv[]){
 
     QApplication a(argc, argv);
 //    MainWindow mainWindow;
-    People people;
+    RelativeWindow relativeWindow;
     Welcome welcome;
 //    if(we.exec()==QDialog::Accepted){
 //    if(we.exec()){
@@ -27,6 +27,6 @@ int main(int argc, char *argv[]){
 //        return a.exec();
 //    }
     welcome.exec();
-    people.show();
+    relativeWindow.show();
     return a.exec();
 }

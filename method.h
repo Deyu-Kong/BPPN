@@ -3,6 +3,13 @@
 /*
     定义日期格式
 */
+
+#include<iostream>
+#include<chrono>
+#include<string>
+#include<ctime>
+#include<sstream>
+#include<QDate>
 struct MyDate {
     int year;
     int month;
@@ -32,7 +39,7 @@ void showWeekDay(MyDate d);
 void showdate(MyDate d);
 //void welcome();
 MyDate getUserBirthday();
-void getNextBirthday(const MyDate& curDate, MyDate& userBirth);
+QDate getNextBirthday(const QDate& curDate,const QDate& userBirth);
 MyDate getAdvancedDate(const MyDate& birth, int advance);
 MyDate getplan(const MyDate curDate, const MyDate userBirth);
 MyDate plan2party(MyDate planDate);

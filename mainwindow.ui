@@ -59,7 +59,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit"/>
+           <widget class="QLineEdit" name="daysDistance"/>
           </item>
          </layout>
         </widget>
@@ -117,7 +117,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_2"/>
+           <widget class="QLineEdit" name="nextBirthdayLabel"/>
           </item>
          </layout>
         </widget>

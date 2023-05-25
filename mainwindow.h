@@ -11,7 +11,7 @@
 #include<QDebug>
 #include<method.h>
 #include <QMainWindow>
-#include<plan.h>
+#include<planwindow.h>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -28,16 +28,16 @@ public:
     QDate Birthday;
     QDate CurrentDate;
     QDate NextBirthday;
+    QString relativeName;
     bool eventFilter(QObject *obj, QEvent *event);
     void setBirthday(QDate birthday);
+    void setRelativeName(QString name);
     int DisDays;
 //    int PlanAdvanceDays;
 //    QDate PlanDate;
 //    QDate PartyDate;
 
 private slots:
-    void on_dateEdit_userDateChanged(const QDate &date);
-
     void on_dateEdit_2_userDateChanged(const QDate &date);
 
     void on_pushButton_2_clicked();
