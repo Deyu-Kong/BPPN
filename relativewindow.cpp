@@ -1,4 +1,4 @@
-﻿#include "relativewindow.h"
+#include "relativewindow.h"
 #include "ui_relativewindow.h"
 
 extern QStringList gRelativeList;
@@ -10,6 +10,7 @@ RelativeWindow::RelativeWindow(QWidget *parent) :
     ui->setupUi(this);
     QString text =QString("姓名\t关系\t生日日期\t");
     ui->listWidget->addItem(text);
+    setWindowTitle("添加亲友信息");
 }
 
 RelativeWindow::~RelativeWindow()

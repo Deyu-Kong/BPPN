@@ -1,4 +1,4 @@
-﻿#include "choosewindow.h"
+#include "choosewindow.h"
 #include "ui_choosewindow.h"
 
 extern QStringList gRelativeList;
@@ -9,6 +9,7 @@ ChooseWindow::ChooseWindow(QWidget *parent) :
     ui(new Ui::ChooseWindow)
 {
     ui->setupUi(this);
+    setWindowTitle("选择");
 
 }
 

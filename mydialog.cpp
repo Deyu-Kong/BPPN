@@ -1,4 +1,4 @@
-﻿#include<QDialog>
+#include<QDialog>
 #include<QGridLayout>
 #include<QLineEdit>
 #include<QPushButton>
@@ -28,7 +28,7 @@ MyDialog::MyDialog(QWidget* parent) : QDialog(parent) {
     layout->addWidget(birthdayLabel, 2, 0);
     layout->addWidget(dateEdit, 2, 1);
     layout->addWidget(okButton, 3, 0);
-
+    setWindowTitle("添加");
     // 连接信号和槽
     connect(okButton, &QPushButton::clicked, this, &MyDialog::onOkButtonClicked);
 }

@@ -1,4 +1,4 @@
-﻿#include<QDialog>
+#include<QDialog>
 #include<QGridLayout>
 #include<QLineEdit>
 #include<QPushButton>
@@ -21,7 +21,7 @@ AskDialog::AskDialog(QWidget* parent) : QDialog(parent) {
     buttonLayout->addWidget(noButton);
 
     layout->addLayout(buttonLayout, 3, 0);
-
+    setWindowTitle("提示");
     // 连接信号和槽
     connect(okButton, &QPushButton::clicked, this, &AskDialog::onOkButtonClicked);
     connect(noButton, &QPushButton::clicked, this, &AskDialog::onNoButtonClicked);
