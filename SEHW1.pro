@@ -20,7 +20,8 @@ SOURCES += \
     choosewindow.cpp \
     relativewindow.cpp \
     global.cpp \
-    planwindow.cpp
+    planwindow.cpp \
+    askdialog.cpp
 HEADERS += \
     end.h \
     mainwindow.h \
@@ -31,7 +32,8 @@ HEADERS += \
     mydialog.h \
     choosewindow.h \
     relativewindow.h \
-    planwindow.h
+    planwindow.h \
+    askdialog.h
 
 FORMS += \
     end.ui \

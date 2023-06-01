@@ -13,8 +13,8 @@ Result::Result(QWidget *parent) :
     ui(new Ui::Result)
 {
     ui->setupUi(this);
-    ui->pushButton->setText("重新制定计划");
-    ui->pushButton_2->setText("结束");
+//    ui->pushButton->setText("重新制定计划");
+    ui->pushButton_2->setText("确定");
     ui->label->setText("下次生日日期");
     ui->label_2->setText("还有");
     ui->label_3->setText("天过生日");
@@ -53,29 +53,45 @@ Result::~Result()
     delete ui;
 }
 
-void Result::on_pushButton_clicked()
-{
-    this->close();
-    PlanWindow *pla=new PlanWindow();
-    pla->PlanAdvanceDays=Result::PlanAdvanceDays;
-    pla->DisDays=Result::DisDays;
-    pla->PlanDate=Result::PlanDate;
-    pla->CurrentDate=Result::CurrentDate;
-    pla->Birthday=Result::Birthday;
-    pla->NextBirthday=Result::NextBirthday;
-    pla->PartyDate=Result::PartyDate;
-    pla->setText1(ui->lineEdit->text());
-    pla->setText2(ui->lineEdit_2->text());
-    pla->setText3(ui->lineEdit_2->text());
-    pla->show();
-}
+
+// 之前的代码，转移到plan页面
+//void Result::on_pushButton_clicked()
+//{
+//    this->close();
+//    PlanWindow *pla=new PlanWindow();
+//    pla->PlanAdvanceDays=Result::PlanAdvanceDays;
+//    pla->DisDays=Result::DisDays;
+//    pla->PlanDate=Result::PlanDate;
+//    pla->CurrentDate=Result::CurrentDate;
+//    pla->Birthday=Result::Birthday;
+//    pla->NextBirthday=Result::NextBirthday;
+//    pla->PartyDate=Result::PartyDate;
+//    pla->setText1(ui->lineEdit->text());
+//    pla->setText2(ui->lineEdit_2->text());
+//    pla->setText3(ui->lineEdit_2->text());
+//    pla->show();
+//}
 
 
 void Result::on_pushButton_2_clicked()
 {
+    AskDialog dialog(this);
+
+    int resout = dialog.exec();
+
+    // 从输入框中的PersInfo转化为QString
+    if (resout == QDialog::Rejected) {
+        End *ed=new End();
+        ed->setText1(ui->lineEdit_5->text());
+        ed->show();
+    }else{
+        ChooseWindow *chooseWindow = new ChooseWindow();
+        chooseWindow->setListWidget();
+        chooseWindow->show();
+    }
     this->close();
-    End *ed=new End();
-    ed->setText1(ui->lineEdit_5->text());
-    ed->show();
+//    End *ed=new End();
+//    ed->setText1(ui->lineEdit_5->text());
+//    ed->show();
 }
 

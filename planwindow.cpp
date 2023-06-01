@@ -86,7 +86,6 @@ void PlanWindow::on_pushButton_2_clicked()
         int year=s.mid(0,4).toInt();
         int month=s.mid(5,2).toInt();
         int day=s.mid(8,2).toInt();
-//        qDebug()<<ui->lineEdit->text()[0];
         QDate d(year,month,day);
 
         MyDate d1(year,month,day);
@@ -94,15 +93,13 @@ void PlanWindow::on_pushButton_2_clicked()
         QDate qd2(d2.year,d2.month,d2.day);
         PlanWindow::PlanAdvanceDays=ui->lineEdit_3->text().toInt();
         PlanWindow::PlanDate=qd2;
-//        int pyear=d2.year;
-//        int pmonth=d2.month;
-//        int pday=d2.day;
         CaculateWeekDay(d2);
-//        d2.week=d2.week+1;
 
-        if(d2.week<5){
-             QMessageBox::warning(this, tr("提示！"),tr("此日期是工作日，已为您自动调整到最近的周六"),"返回");
-
+        if(isSpecialVacation(d2)){
+            QMessageBox::warning(this, tr("提示！"),tr("此日期是特殊假日"),"确定");
+        }
+        else if(d2.week<5){
+             QMessageBox::warning(this, tr("提示！"),tr("此日期是工作日，已为您自动调整到最近的周六"),"确定");
         }
         MyDate pd=plan2party(d2);
         int qpyear=pd.year;

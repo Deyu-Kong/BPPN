@@ -1,4 +1,7 @@
-﻿#ifndef MYDIALOG_H
+﻿#ifndef ASKDIALOG_H
+#define ASKDIALOG_H
+
+#ifndef MYDIALOG_H
 #define MYDIALOG_H
 
 #include<QDialog>
@@ -11,17 +14,17 @@
 #include "persinfo.h"
 
 
-class MyDialog : public QDialog {
+class AskDialog : public QDialog {
     Q_OBJECT
 
 public:
-    MyDialog(QWidget* parent = nullptr);
-    PersInfo getData();
+    AskDialog(QWidget* parent = nullptr);
     void onOkButtonClicked();
-    QLineEdit* lineEdit1;
-    QLineEdit* lineEdit2;
-    QDateEdit* dateEdit;
+    void onNoButtonClicked();
 };
 
 
 #endif // MYDIALOG_H
+
+
+#endif // ASKDIALOG_H

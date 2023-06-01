@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @file result.h
  * @author Du Zhongfan  (Student-ID:2020302041100)
  * @date 2023/3/4     9:00
@@ -11,6 +11,9 @@
 #include<QMessageBox>
 #include<planwindow.h>
 #include<end.h>
+#include<askdialog.h>
+#include<choosewindow.h>
+
 namespace Ui {
 class Result;
 }
@@ -35,8 +38,7 @@ public:
     void setText4(QString pd);
     void setText5(QString fpd);
 private slots:
-    void on_pushButton_clicked();
-
+//    void on_pushButton_clicked();
     void on_pushButton_2_clicked();
 
 private:

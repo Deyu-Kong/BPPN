@@ -6,9 +6,6 @@
 #include "mydialog.h"
 
 
-
-
-
 MyDialog::MyDialog(QWidget* parent) : QDialog(parent) {
     // 创建布局和控件
     QGridLayout* layout = new QGridLayout(this);

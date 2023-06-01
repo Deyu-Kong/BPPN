@@ -228,9 +228,21 @@ MyDate getplan(const MyDate curDate, const MyDate userBirth) {
     return planDate;
 }
 
+bool isSpecialVacation(MyDate date){
+    if (date.month==5&&date.day<=3){// 5.1--5.3期间
+        return true;
+    }else if(date.month==10&&date.day<=7){ //10.1--10.7期间
+        return true;
+    }
+    return false;
+}
+
 MyDate plan2party(MyDate planDate) {
     MyDate partyDate;
-    if (planDate.week < 5) {
+    if(isSpecialVacation(planDate)){
+        partyDate = planDate;
+    }
+    else if (planDate.week < 5) {
 //        cout << "计划当天是";
 //        showWeekDay(planDate);
 //        cout << "，已为您自动调整为最近的周六……" << endl;
