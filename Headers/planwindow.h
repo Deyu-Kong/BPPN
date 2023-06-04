@@ -2,7 +2,7 @@
  * @file planwindow.h
  * @author 孔德昱，杜忠璠
  * @date 2023/3/3     20:00
- * @brief
+ * @brief 定义计划界面
  */
 #ifndef PLAN_H
 #define PLAN_H
