@@ -1,15 +1,20 @@
 ﻿
 /**
  * @file plan.cpp
- * @author Du Zhongfan  (Student-ID:2020302041100)
+ * @author 杜忠璠，孔德昱
  * @date 2023/3/3     20:00
- *
+ * @brief 显示计划页面以及定义相关操作
  */
 #include "planwindow.h"
 #include "ui_planwindow.h"
 
 extern QListWidgetItem *curRelative;
 
+/**
+ * @brief PlanWindow类的构造函数，用于初始化显示内容。
+ * @param parent   继承的父类对象
+ * @return 无返回值
+ */
 PlanWindow::PlanWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::PlanWindow)
@@ -18,7 +23,6 @@ PlanWindow::PlanWindow(QWidget *parent) :
     ui->pushButton->setText("返回");
     ui->label->setText("下次生日的日期：");
     ui->label_2->setText("剩余天数：");
-//    ui->label_3->setText("天");
     ui->label_3->setText("提前后的日期为：");
     ui->label_6->setText("计划日期为：");
 
@@ -29,8 +33,6 @@ PlanWindow::PlanWindow(QWidget *parent) :
     ui->lineEdit_4->setReadOnly(true);
     ui->lineEdit_5->setReadOnly(true);
     setWindowTitle("制定聚会计划");
-
-
 }
 
 PlanWindow::~PlanWindow()
@@ -38,9 +40,11 @@ PlanWindow::~PlanWindow()
     delete ui;
 }
 
-/*
-    在计划阶段选择返回，重新输入当前日期。
-*/
+/**
+ * @brief 在计划阶段选择返回，重新输入当前日期。
+ * @param parent   继承的父类对象
+ * @return 无返回值
+ */
 void PlanWindow::on_pushButton_clicked()
 {
     this->close();
@@ -59,9 +63,11 @@ void PlanWindow::on_pushButton_clicked()
 void PlanWindow::setText1(QString nb){
     ui->lineEdit->setText(nb);
 }
+
 void PlanWindow::setText2(QString days){
     ui->lineEdit_2->setText(days);
 }
+
 void PlanWindow::setText3(QString days){
     QString s("请输入0-");
     s.append(days);

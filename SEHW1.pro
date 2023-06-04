@@ -9,41 +9,41 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    end.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    method.cpp \
-    persinfo.cpp \
-    result.cpp \
-    welcome.cpp \
-    mydialog.cpp \
-    choosewindow.cpp \
-    relativewindow.cpp \
-    global.cpp \
-    planwindow.cpp \
-    askdialog.cpp
+    ./Sources/end.cpp \
+    ./Sources/main.cpp \
+    ./Sources/mainwindow.cpp \
+    ./Sources/method.cpp \
+    ./Sources/persinfo.cpp \
+    ./Sources/result.cpp \
+    ./Sources/welcome.cpp \
+    ./Sources/mydialog.cpp \
+    ./Sources/choosewindow.cpp \
+    ./Sources/relativewindow.cpp \
+    ./Sources/global.cpp \
+    ./Sources/planwindow.cpp \
+    ./Sources/askdialog.cpp
 HEADERS += \
-    end.h \
-    mainwindow.h \
-    method.h \
-    result.h \
-    welcome.h \
-    persinfo.h \
-    mydialog.h \
-    choosewindow.h \
-    relativewindow.h \
-    planwindow.h \
-    askdialog.h
+    ./Headers/end.h \
+    ./Headers/mainwindow.h \
+    ./Headers/method.h \
+    ./Headers/result.h \
+    ./Headers/welcome.h \
+    ./Headers/persinfo.h \
+    ./Headers/mydialog.h \
+    ./Headers/choosewindow.h \
+    ./Headers/relativewindow.h \
+    ./Headers/planwindow.h \
+    ./Headers/askdialog.h
 
 FORMS += \
-    end.ui \
-    mainwindow.ui \
-    result.ui \
-    welcome.ui \
-    relativewindow.ui \
-    choosewindow.ui \
-    relativewindow.ui \
-    planwindow.ui
+    ./Forms/end.ui \
+    ./Forms/mainwindow.ui \
+    ./Forms/result.ui \
+    ./Forms/welcome.ui \
+    ./Forms/relativewindow.ui \
+    ./Forms/choosewindow.ui \
+    ./Forms/relativewindow.ui \
+    ./Forms/planwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

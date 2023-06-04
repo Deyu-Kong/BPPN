@@ -1,8 +1,8 @@
 ﻿/**
- * @file plan.h
- * @author Du Zhongfan  (Student-ID:2020302041100)
+ * @file planwindow.h
+ * @author 孔德昱，杜忠璠
  * @date 2023/3/3     20:00
- *
+ * @brief
  */
 #ifndef PLAN_H
 #define PLAN_H
@@ -40,11 +40,8 @@ public:
     QDate PartyDate;
 private slots:
     void on_pushButton_clicked();
-
     void on_pushButton_2_clicked();
-
     void on_pushButton_3_clicked();
-
 private:
     Ui::PlanWindow *ui;
 };
