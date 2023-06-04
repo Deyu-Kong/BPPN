@@ -1,9 +1,10 @@
 ﻿/**
  * @file welcome.h
- * @author Du Zhongfan  (Student-ID:2020302041100)
- * @date 2023/3/3     20:00
- *
+ * @author 杜忠璠 孔德昱
+ * @date 2023/3/3
+ * @brief 定义欢迎界面
  */
+** /
 #ifndef WELCOME_H
 #define WELCOME_H
 
@@ -11,25 +12,43 @@
 #include <QKeyEvent>
 #include <QMouseEvent>
 #include <QKeyEvent>
-#include<QPainter>
-namespace Ui {
-class Welcome;
+#include <QPainter>
+    namespace Ui
+{
+    class Welcome;
 }
-
+/**
+ * @brief Welcome类，用于显示欢迎界面
+ */
 class Welcome : public QDialog
 {
     Q_OBJECT
 
 public:
+    /**
+     * @brief Welcome类的构造函数，用于初始化显示的内容
+     * @param parent 父窗口 默认为nullptr
+     */
     explicit Welcome(QWidget *parent = nullptr);
-    // 鼠标按下事件
+
+    /**
+     * @brief 鼠标按下事件
+     * @param event 事件
+     */
     void mousePressEvent(QMouseEvent *event);
-    // 键盘按下事件
+
+    /**
+     * @brief 键盘按下事件
+     * @param event 事件
+     */
     void keyPressEvent(QKeyEvent *event);
+
+    /**
+     * @brief Welcome类的析构函数，用于关闭窗口
+     */
     ~Welcome();
 
 private slots:
-//    void on_pushButton_clicked();
 
 private:
     Ui::Welcome *ui;

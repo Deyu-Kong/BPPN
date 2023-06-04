@@ -1,7 +1,7 @@
-﻿/**
+/**
  * @file end.h
- * @author Du Zhongfan  (Student-ID:2020302041100)
- * @date 2023/3/4     9:00
+ * @author 杜忠璠
+ * @date 2023/3/4
  * @brief 定义结束界面
  */
 #ifndef END_H
