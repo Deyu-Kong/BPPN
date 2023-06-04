@@ -1,9 +1,9 @@
 ﻿
 /**
  * @file mainwindow.cpp
- * @author Du Zhongfan  (Student-ID:2020302041100)
+ * @author 杜忠璠
  * @date 2023/3/3     20:00
- *
+ * @brief 定义主界面
  */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"

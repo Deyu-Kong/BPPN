@@ -44,7 +44,7 @@ public:
     void keyPressEvent(QKeyEvent *event);
 
     /**
-     * @brief 获取鼠标点击事件，实现点击鼠标进入下一界面
+     * @brief 设置焦点
      * @param event 事件
      */
     void RelativeWindow::showEvent(QShowEvent *event);

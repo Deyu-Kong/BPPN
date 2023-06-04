@@ -1,5 +1,5 @@
 /**
- * @file askdialog.h
+ * @file choosewindow.cpp
  * @authors 孔德昱
  * @date 2023-5-28
  * @brief ChooseWindow类的实现文件，用于让用户选择亲友

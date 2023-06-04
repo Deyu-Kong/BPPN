@@ -21,12 +21,6 @@ int main(int argc, char *argv[])
     //    MainWindow mainWindow;
     RelativeWindow relativeWindow;
     Welcome welcome;
-    //    if(we.exec()==QDialog::Accepted){
-    //    if(we.exec()){
-    //        we.hide();
-    //        w.show();
-    //        return a.exec();
-    //    }
 
     // 首先显示欢迎界面
     welcome.exec();
